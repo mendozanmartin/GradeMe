@@ -13,8 +13,14 @@ android {
   defaultConfig {
     minSdkVersion 17
     generatedDensities = []
+    applicationId = "org.nativescript.personalproject"  
+    multiDexEnabled true
+    generatedDensities = []
   }
   aaptOptions {
     additionalParameters "--no-version-vectors"
+  }
+  dexOptions {
+    javaMaxHeapSize "4g"
   }
 }
