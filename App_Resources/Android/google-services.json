@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "726789043031",
+    "firebase_url": "https://grade-calculator-462cf.firebaseio.com",
+    "project_id": "grade-calculator-462cf",
+    "storage_bucket": "grade-calculator-462cf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:726789043031:android:ef0bf8bd65b91e28f80412",
+        "android_client_info": {
+          "package_name": "org.nativescript.personalproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "726789043031-h58445h85i0r14im3qcqbffo8sj6clbp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMsbfb17vdLjzmk54TxPVsLZEsAMjQ0Bw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "726789043031-h58445h85i0r14im3qcqbffo8sj6clbp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
