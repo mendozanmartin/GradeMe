@@ -5,6 +5,7 @@ import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angul
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
     bootstrap: [
@@ -17,7 +18,8 @@ import { LoginComponent } from './login/login.component';
     ],
     declarations: [
         AppComponent,
-        LoginComponent
+        LoginComponent,
+        SignupComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA
