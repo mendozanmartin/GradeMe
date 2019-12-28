@@ -3,6 +3,9 @@ export class User {
     lastName: string;
     email: string;
     uid: string;
-    password: string;
     courses: Array<string>;
+
+    getFullName() {
+        return this.firstName + this.lastName
+    }
 }
