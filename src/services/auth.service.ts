@@ -11,7 +11,7 @@ export class AuthService {
   constructor() { }
   
   createUser(user: User, password: string) {
-    firebase.createUser({
+    return firebase.createUser({
       email: user.email,
       password: password
     }).then(
@@ -21,6 +21,7 @@ export class AuthService {
             message: "email: " + account.email,
             okButtonText: "Nice!"
           })
+          return account.uid
         },
         function (errorMessage) {
           dialogs.alert({
@@ -31,4 +32,26 @@ export class AuthService {
         }
     );
   }
+
+  authenticate(email: string, password: string) {
+      return firebase.login(
+      {
+        type: firebase.LoginType.PASSWORD,
+        passwordOptions: {
+          email: email,
+          password: password
+        }
+      })
+      .then(result => {
+        return {isSuccessful: true, uid: result.uid}
+      })
+      .catch(error => {
+        dialogs.alert({
+          title: "Error",
+          message: error,
+          okButtonText: "Ok, got it"
+        })
+        return {isSuccessful: false, uid: undefined}
+      });  
+    }
 }

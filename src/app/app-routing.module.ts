@@ -3,12 +3,13 @@ import { Routes } from "@angular/router";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { LoginComponent } from "./login/login.component";
 import { SignupComponent } from "./signup/signup.component";
+import { AuthGuardService } from "~/services/auth-guard.service";
 
 const routes: Routes = [
-    { path: "", redirectTo: "/signup", pathMatch: "full" },
+    { path: "", redirectTo: "/home", pathMatch: "full" },
     {path: "login", component: LoginComponent},
     {path: "signup", component: SignupComponent},
-    { path: "home", loadChildren: () => import("~/app/home/home.module").then((m) => m.HomeModule) },
+    { path: "home", loadChildren: () => import("~/app/home/home.module").then((m) => m.HomeModule), canActivate: [AuthGuardService] },
     { path: "browse", loadChildren: () => import("~/app/browse/browse.module").then((m) => m.BrowseModule) },
     { path: "search", loadChildren: () => import("~/app/search/search.module").then((m) => m.SearchModule) },
     { path: "featured", loadChildren: () => import("~/app/featured/featured.module").then((m) => m.FeaturedModule) },
