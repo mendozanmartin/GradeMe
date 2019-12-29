@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Page } from 'tns-core-modules/ui/page/page';
 import { User } from '~/models/user.model';
 import { AuthService } from '~/services/auth.service';
+import { FirestoreService } from '~/services/firestore.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ export class SignupComponent implements OnInit {
   public user: User;
   public password: string;
 
-  constructor(private page: Page, private auth: AuthService) { 
+  constructor(private page: Page, private auth: AuthService, private firestore:FirestoreService) { 
     page.actionBarHidden = true;
     this.user = new User();
   }
@@ -23,7 +24,13 @@ export class SignupComponent implements OnInit {
   }
 
   signUp() {
-    this.auth.createUser(this.user, this.password);
+    this.auth.createUser(this.user, this.password).then(uid => {
+      if (uid !== undefined) {
+        this.user.uid = uid as string;
+        this.firestore.updateUser(this.user);
+      }
+    })
+
   }
 
 }

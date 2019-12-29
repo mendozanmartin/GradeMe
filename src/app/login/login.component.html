@@ -1,8 +1,9 @@
 <StackLayout class = "page">
-<StackLayout width = "75%" paddingTop = "150">
-    <TextField hint = "johndoe@example.com"></TextField>
-    <TextField hint = "******" secure = "true"></TextField>
-    <Button text = "Login" color = "white" backgroundColor = "#63C59C" marginTop = "30"></Button>
+<StackLayout width = "75%" paddingTop = "150" class = "text-center">
+    <TextField [(ngModel)] = "email" hint = "johndoe@example.com"></TextField>
+    <TextField [(ngModel)] = "password" hint = "**********" secure = "true"></TextField>
+    <Button text = "Login" color = "white" backgroundColor = "#63C59C" marginTop = "30" (tap) = "login()"></Button>
     <Button text = "Signup" backgroundColor = "#F4AFAF" color = "white"></Button>
+    <Label text = "Continue without signing up" marginTop = "20" class = "h4"></Label>
 </StackLayout>
 </StackLayout>

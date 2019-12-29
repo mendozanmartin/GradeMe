@@ -1,4 +1,4 @@
-import { CourseGrade } from "./course-grade.model";
+import { AssessmentGrade } from "./assessment-grade.model";
 
 export class Course {
     cid: string;
@@ -6,5 +6,6 @@ export class Course {
     currentGrade: string;
     academicYear: string;
     academicSeason: string;
-    weightedGrades: Array<CourseGrade>
+    weightedGrades: Array<AssessmentGrade>
+    credits: number;
 }

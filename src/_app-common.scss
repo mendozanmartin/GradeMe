@@ -5,6 +5,15 @@
 // This is where the vast majority of your CSS code goes.
 
 // Font icon class
+TextField {
+    placeholder-color: #d3d3d3;
+    border-radius: 5;
+    height: 50;
+    background-color: white;
+    padding: 10;
+    font-size: 18;
+}
+
 Button {
     border-radius: 5;
 }
