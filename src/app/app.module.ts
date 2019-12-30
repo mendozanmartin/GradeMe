@@ -7,6 +7,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { AdditionSequenceComponent } from './addition-sequence/addition-sequence.component';
 
 @NgModule({
     bootstrap: [
@@ -21,7 +22,8 @@ import { SignupComponent } from './signup/signup.component';
     declarations: [
         AppComponent,
         LoginComponent,
-        SignupComponent
+        SignupComponent,
+        AdditionSequenceComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA
