@@ -4,7 +4,7 @@ import { RouterExtensions } from "nativescript-angular/router";
 import { DrawerTransitionBase, RadSideDrawer, SlideInOnTopTransition } from "nativescript-ui-sidedrawer";
 import { filter } from "rxjs/operators";
 import * as firebase from "nativescript-plugin-firebase";
-import * as app from "tns-core-modules/application";
+import * as app from "tns-core-modules/application"
 
 @Component({
     selector: "ns-app",
@@ -15,7 +15,11 @@ export class AppComponent implements OnInit {
     private _sideDrawerTransition: DrawerTransitionBase;
 
     constructor(private router: Router, private routerExtensions: RouterExtensions) {
-        // Use the component constructor to inject services.
+        if (app.android) {
+            const activity = app.android.startActivity;
+            const win = activity.getWindow();
+            win.addFlags(android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }    
     }
 
     ngOnInit(): void {
@@ -37,7 +41,10 @@ export class AppComponent implements OnInit {
               console.log(`firebase.init error: ${error}`);
             }
           );
+        
     }
+
+    
 
     get sideDrawerTransition(): DrawerTransitionBase {
         return this._sideDrawerTransition;

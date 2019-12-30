@@ -3,4 +3,6 @@ import { platformNativeScriptDynamic } from "nativescript-angular/platform";
 
 import { AppModule } from "./app/app.module";
 
+// Hide Status bar android
+
 platformNativeScriptDynamic().bootstrapModule(AppModule);
