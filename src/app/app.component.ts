@@ -15,11 +15,7 @@ export class AppComponent implements OnInit {
     private _sideDrawerTransition: DrawerTransitionBase;
 
     constructor(private router: Router, private routerExtensions: RouterExtensions) {
-        if (app.android) {
-            const activity = app.android.startActivity;
-            const win = activity.getWindow();
-            win.addFlags(android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        }    
+   
     }
 
     ngOnInit(): void {

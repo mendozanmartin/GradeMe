@@ -7,7 +7,7 @@ import { AuthGuardService } from "~/services/auth-guard.service";
 import { AdditionSequenceComponent } from "./addition-sequence/addition-sequence.component";
 
 const routes: Routes = [
-    { path: "", redirectTo: "/addition-sequence", pathMatch: "full" },
+    { path: "", redirectTo: "/login", pathMatch: "full" },
     {path: "login", component: LoginComponent},
     {path: "signup", component: SignupComponent},
     {path: "addition-sequence", component: AdditionSequenceComponent},
