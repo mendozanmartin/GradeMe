@@ -1,6 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
+import { AuthService } from "~/services/auth.service";
+import { PersistentSettings } from "~/services/persistent-settings.service";
+import { RouterExtensions } from "nativescript-angular/router";
 
 @Component({
     selector: "Settings",
@@ -8,7 +11,7 @@ import * as app from "tns-core-modules/application";
 })
 export class SettingsComponent implements OnInit {
 
-    constructor() {
+    constructor(private auth: AuthService, private router: RouterExtensions) {
         // Use the component constructor to inject providers.
     }
 
@@ -19,5 +22,14 @@ export class SettingsComponent implements OnInit {
     onDrawerButtonTap(): void {
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.showDrawer();
+    }
+
+    logout() {
+        this.auth.signOut().then(data=> {
+            console.log(data)
+            PersistentSettings.token = ""
+            this.router.navigate(["/login"])
+        });
+
     }
 }

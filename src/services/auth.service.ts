@@ -54,4 +54,13 @@ export class AuthService {
         return {isSuccessful: false, uid: undefined}
       });  
     }
+
+    signOut() {
+      return firebase.logout().then(data=> {
+        return data
+      }, error => {
+        console.error()
+      });
+
+    }
 }

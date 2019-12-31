@@ -16,12 +16,13 @@
 </ActionBar>
 
 <AbsoluteLayout width = "100%" height = "100%" >
- <ScrollView class = "text-center" width = "100%" height = "100%">
-    <!-- <StackLayout class = "course-block" borderRadius = "10" height = "100"> We can use an ng-for loop to display all courses
+ <StackLayout width = "100%" height = "100%">
+     <Label text = "Hi Martin, which course would you like to check?" marginTop = "10" marginLeft = "25" marginRight = "25" fontSize = "20" textWrap = "true" fontWeight = "600"></Label>
+    <StackLayout marginTop = "15" class = "course-block" borderRadius = "10" height = "100" marginLeft = "25" marginRight = "25" borderWidth = "1"> 
         <Label text = "PROCTECH 3CE3 - Chemical Engineering"></Label>
-    </StackLayout> -->
-</ScrollView>
-    <Button top = "455" left = "250" height = "75" width = "75" borderRadius = "50%" backgroundColor = "#ADCAED" (tap) = "addGPA()">
+    </StackLayout>
+</StackLayout>
+    <Button top = "455" left = "250" height = "75" width = "75" borderRadius = "50%" backgroundColor = "#5E94D5" (tap) = "addGPA()">
         <FormattedString>
             <Span text = "&#xf067;" color = "white" class = "fas" fontSize = "30"></Span>
         </FormattedString>
