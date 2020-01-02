@@ -8,7 +8,7 @@ import { AdditionSequenceComponent } from "./addition-sequence/addition-sequence
 import { CoursePageComponent } from "./course-page/course-page.component";
 
 const routes: Routes = [
-    { path: "", redirectTo: "/course-page", pathMatch: "full" },
+    { path: "", redirectTo: "/home", pathMatch: "full" },
     {path: "login", component: LoginComponent},
     {path: "signup", component: SignupComponent},
     {path: "course-page", component: CoursePageComponent},

@@ -12,7 +12,7 @@ export class AuthGuardService implements CanActivate {
   constructor(private router: RouterExtensions) { }
 
   canActivate() {
-    if (PersistentSettings.isLoggedIn) {
+    if (PersistentSettings.isLoggedIn()) {
       return true
     } else {
       this.router.navigate(["/login"])

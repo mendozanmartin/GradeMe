@@ -9,6 +9,11 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { AdditionSequenceComponent } from './addition-sequence/addition-sequence.component';
 import { CoursePageComponent } from './course-page/course-page.component';
+import { AuthGuardService } from "~/services/auth-guard.service";
+import { AuthService } from "~/services/auth.service";
+import { FirestoreService } from "~/services/firestore.service";
+import { InternalStorageService } from "~/services/internal-storage.service";
+import { PersistentSettings } from "~/services/persistent-settings.service";
 
 @NgModule({
     bootstrap: [
@@ -29,6 +34,7 @@ import { CoursePageComponent } from './course-page/course-page.component';
     ],
     schemas: [
         NO_ERRORS_SCHEMA
-    ]
+    ],
+    providers: [AuthGuardService, AuthService, FirestoreService, InternalStorageService, PersistentSettings]
 })
 export class AppModule { }
