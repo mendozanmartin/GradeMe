@@ -8,6 +8,7 @@ import { AppComponent } from "./app.component";
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { AdditionSequenceComponent } from './addition-sequence/addition-sequence.component';
+import { CoursePageComponent } from './course-page/course-page.component';
 
 @NgModule({
     bootstrap: [
@@ -23,7 +24,8 @@ import { AdditionSequenceComponent } from './addition-sequence/addition-sequence
         AppComponent,
         LoginComponent,
         SignupComponent,
-        AdditionSequenceComponent
+        AdditionSequenceComponent,
+        CoursePageComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA

@@ -4,7 +4,7 @@ export class Course {
     cid: string;
     courseName: string;
     currentGrade: string;
-    academicYear: string;
+    academicYear: number;
     academicSeason: string;
     weightedGrades: Array<AssessmentGrade>
     credits: number;

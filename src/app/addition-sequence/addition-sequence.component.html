@@ -1,23 +1,46 @@
-<StackLayout width = "100%" height = "100%" backgroundColor = "#5296D6">
-    <FlexboxLayout marginTop = "50" color = "white" class = "h2"  marginLeft = "25">
-        <Label text = "&#xf053;" class = "fas" verticalAlignment = "center"></Label>
-        <Label text = "Back" verticalAlignment = "center"></Label>
+<StackLayout width="100%" height="100%" backgroundColor="#5296D6">
+
+    <FlexboxLayout marginTop="50" color="white" class="h2" marginLeft="25" alignItems="center">
+        <Label text="&#xf053;" class="fas"></Label>
+        <Label text="Back" marginLeft="10"></Label>
     </FlexboxLayout>
-    <Label  marginLeft= "25" marginRight = "25" fontWeight= "bold" [text] = "prompt" color = "white" class = "prompt" textWrap = "true"></Label>
-    <StackLayout *ngIf="sequenceOne" height = "100%">
-        <Button class = "decision-button" androidElevation = "5" text = "Term" marginTop = "50" (tap) = "termSequence()"></Button>
-        <Button class = "decision-button" androidElevation = "5" text = "Course" marginTop = "20" (tap) = "courseSequence()"></Button>
+
+    <Label marginLeft="25" marginRight="25" fontWeight="bold" [text]="prompt" color="white" class="prompt"
+        textWrap="true"></Label>
+
+    <StackLayout *ngIf="sequenceBegin" height="100%">
+        <Button class="decision-button" androidElevation="5" marginTop="50" text="Course" 
+        (tap)="courseSequence()"></Button>
+        <Button class="decision-button" androidElevation="5" text="Term" marginTop="20" (tap)="termSequence()"></Button>
     </StackLayout>
 
-    <StackLayout *ngIf = "sequenceTwo">
-        <TextField [(ngModel)] = "course.courseName" marginTop = "40" class = "text-center" androidElevation = "5" hint = "Enter your course here"></TextField>
-        <Button text = "Submit" class = "submit-button" horizontalAlignment = "left" androidElevation = "5" (tap) = "enterTermSelection()"></Button>
-        <Label color = "white" marginTop = "20" class = "h3 text-center" text = "Don't worry, you don't have to submit a course name"  marginLeft= "25" marginRight = "25" textWrap = "true"></Label>
+    <StackLayout *ngIf="courseOne">
+        <TextField [(ngModel)]="course.courseName" marginTop="40" class="text-center" androidElevation="5"
+            hint="Enter your course here"></TextField>
+        <Button text="Submit" class="submit-button" horizontalAlignment="left" androidElevation="5"
+            (tap)="enterTermSelection()"></Button>
+        <Label color="white" marginTop="20" class="h3 text-center"
+            text="Don't worry, you don't have to submit a course name" marginLeft="25" marginRight="25"
+            textWrap="true"></Label>
     </StackLayout>
 
-    <StackLayout *ngIf = "sequenceThree">
-        <ListPicker [items]="years" selectedIndex="0" (selectedIndexChange)="onSelectedIndexChanged($event)"></ListPicker>
-
+    <StackLayout *ngIf="courseTwo">
+        <FlexboxLayout justifyContent="space-around">
+            <ListPicker fontSize="20" [items]="seasons" selectedIndex="0"
+                (selectedIndexChange)="onSelectedSeasonChanged($event)"></ListPicker>
+            <ListPicker [items]="years" selectedIndex="0" (selectedIndexChange)="onSelectedYearChanged($event)">
+            </ListPicker>
+        </FlexboxLayout>
+        <Button text="Submit" class="submit-button" horizontalAlignment="left" androidElevation="5"
+            (tap)="submitAcademicTerm()"></Button>
     </StackLayout>
 
+    <StackLayout *ngIf="courseThree">
+        <FlexboxLayout marginTop = "50">
+            <Button class="decision-button" androidElevation="5" text="Yes" 
+                (tap)="enterFinalGrade()"></Button>
+            <Button class="decision-button" androidElevation="5" text="No" 
+                (tap)="enterGradeBreakdown()"></Button>
+        </FlexboxLayout>
+    </StackLayout>
 </StackLayout>
