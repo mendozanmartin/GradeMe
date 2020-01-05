@@ -1,0 +1,25 @@
+/* Add mobile styles for the component here.  */
+ListPicker {
+    color: white;
+    width: 40%;
+}
+.prompt {
+    font-size: 27;
+    margin-top: 70;
+}
+.decision-button {
+    color: #5296D6;
+    font-size: 25;
+    font-weight: bold;
+    width: 200;
+    border-radius: 10;
+}
+
+.submit-button {
+    color: white;
+    background-color: #FF8282;
+    font-size: 22;
+    font-weight: bold; 
+    width: 150;
+    border-radius: 10;
+}
