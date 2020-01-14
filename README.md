@@ -1,5 +1,12 @@
 # Winter-Break-App
-Mobile app whose purpose is yet to be determined lol. Name of repo is going to change ofc. (In Progress)
+An app made for slackers, designed by slackers.
+## Short description
+We are developing a mobile application that will allow you to store all of your GPAs conveniently. This app will include:
+* How much you need to pass course calculator
+* Best mark you can achieve in course calculator
+* GPA vs. time visualizer
+* GPA converions
+* We're still thinking of more...
 
 ## Wireframes
 
