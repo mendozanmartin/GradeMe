@@ -1,4 +1,4 @@
-# Winter-Break-App
+# GradeMe
 An app created for slackers, designed by slackers. This app is meant to be so easy to use that even a 4 year can get around, not that they even have GPAs.
 
 ## Short description
