@@ -1,5 +1,5 @@
 # Winter-Break-App
-An app made for slackers, designed by slackers.
+An app created for slackers, designed by slackers.
 ## Short description
 We are developing a mobile application that will allow you to store all of your GPAs conveniently. This app will include:
 * How much you need to pass course calculator
