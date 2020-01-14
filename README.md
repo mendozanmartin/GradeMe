@@ -1,7 +1,7 @@
 # Winter-Break-App
 Mobile app whose purpose is yet to be determined lol. Name of repo is going to change ofc. (In Progress)
 
-##Wireframes
+## Wireframes
 
 <p float="left">
   <img src="/wireframes/Home.png" height = "auto" width = "200">
