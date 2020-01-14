@@ -18,7 +18,7 @@
         <TextField [(ngModel)]="course.courseName" marginTop="40" class="text-center" androidElevation="5"
             hint="Enter your course here"></TextField>
         <Button text="Submit" class="submit-button" horizontalAlignment="left" androidElevation="5"
-            (tap)="enterTermSelection()"></Button>
+            (tap)="enterCourseName()"></Button>
         <Label color="white" marginTop="20" class="h3 text-center"
             text="Don't worry, you don't have to submit a course name" marginLeft="25" marginRight="25"
             textWrap="true"></Label>
@@ -32,15 +32,43 @@
             </ListPicker>
         </FlexboxLayout>
         <Button text="Submit" class="submit-button" horizontalAlignment="left" androidElevation="5"
-            (tap)="submitAcademicTerm()"></Button>
+            (tap)="submitAcademicPeriodCourse()"></Button>
     </StackLayout>
 
     <StackLayout *ngIf="courseThree">
         <FlexboxLayout marginTop = "50">
             <Button class="decision-button" androidElevation="5" text="Yes" 
-                (tap)="enterFinalGrade()"></Button>
+                (tap)="enterFinalGradeCourse()"></Button>
             <Button class="decision-button" androidElevation="5" text="No" 
                 (tap)="enterGradeBreakdown()"></Button>
         </FlexboxLayout>
     </StackLayout>
+
+    <StackLayout *ngIf = "courseFour">
+        <FlexboxLayout marginTop = "40" justifyContent="center" alignItems="center">
+            <TextField hint = "3.6" width ="70" height = "60" fontSize = "30" class ="text-center" keyboardType = "number"></TextField>
+            <Label text = "/" color = "white" height = "60"fontSize ="70" class = "text-center"></Label>
+            <TextField hint = "4" width = "70" fontSize ="30" class = "text-center" keyboardType = "number" ></TextField>
+        </FlexboxLayout>
+        <Button text="Submit" class = "submit-button" marginTop ="30" androidElevation="5" (tap)="submitFinalGradeCourse()" horizontalAlignment="left"></Button>
+    </StackLayout>
+
+    <StackLayout *ngIf="termOne">
+        <FlexboxLayout justifyContent="space-around">
+            <ListPicker fontSize="20" [items]="seasons" selectedIndex="0"
+                (selectedIndexChange)="onSelectedSeasonChanged($event)"></ListPicker>
+            <ListPicker [items]="years" selectedIndex="0" (selectedIndexChange)="onSelectedYearChanged($event)">
+            </ListPicker>
+        </FlexboxLayout>
+        <Button text="Submit" class="submit-button" horizontalAlignment="left" androidElevation="5"
+            (tap)="submitAcademicPeriodTerm()"></Button>
+    </StackLayout>
+
+    <StackLayout *ngIf="termTwo">
+        <FlexboxLayout marginTop = "50">
+        </FlexboxLayout>
+    <StackLayout>
+
+    </StackLayout>
+    
 </StackLayout>

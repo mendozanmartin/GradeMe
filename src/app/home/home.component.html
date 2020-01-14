@@ -18,10 +18,14 @@
 <AbsoluteLayout width = "100%" height = "100%" >
  <StackLayout width = "100%" height = "100%">
      <Label text = "Hi Martin, which course would you like to check?" marginTop = "10" marginLeft = "25" marginRight = "25" fontSize = "20" textWrap = "true" fontWeight = "600"></Label>
-    <StackLayout marginTop = "15" class = "course-block" borderRadius = "10" height = "100" marginLeft = "25" marginRight = "25" borderWidth = "1"> 
+    <StackLayout marginTop = "15" class = "course-block" borderRadius = "10" height = "100" marginLeft = "25" marginRight = "25" borderWidth = "1" (tap) ="navigateToCourse()"> 
         <Label text = "PROCTECH 3CE3 - Chemical Engineering" class = "text-center"></Label>
     </StackLayout>
+    <StackLayout marginTop = "15" class = "course-block" borderRadius = "10" height = "100" marginLeft = "25" marginRight = "25" borderWidth = "1" (tap)="navigateToCourse()"> 
+        <Label text = "PROCTECH 4SS3 - System Specifications and Design" class = "text-center"></Label>
+    </StackLayout>
 </StackLayout>
+
     <Button androidElevation = "5" top = "455" left = "250" height = "75" width = "75" borderRadius = "50%" backgroundColor = "#5E94D5" (tap) = "addGPA()">
         <FormattedString>
             <Span text = "&#xf067;" color = "white" class = "fas" fontSize = "30"></Span>

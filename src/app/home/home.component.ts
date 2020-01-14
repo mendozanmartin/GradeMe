@@ -26,4 +26,8 @@ export class HomeComponent implements OnInit {
         this.router.navigate(["addition-sequence"])
     }
 
+    navigateToCourse() {
+        this.router.navigate(["course-page"], {transition: {name: "slide", duration:500, curve: "ease"}})
+    }
+
 }
