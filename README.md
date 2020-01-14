@@ -6,7 +6,7 @@ We are developing a mobile application that will allow you to store all of your 
 * How much you need to pass course calculator
 * Best mark you can achieve in course calculator
 * GPA vs. time visualizer
-* GPA converions
+* GPA conversions
 * We're still thinking of more...
 
 ## Wireframes
