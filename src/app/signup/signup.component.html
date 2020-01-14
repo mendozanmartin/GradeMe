@@ -1,0 +1,11 @@
+<StackLayout class="page">
+        <StackLayout width="75%" paddingTop="150">
+            <TextField [(ngModel)]="user.firstName" hint="John"></TextField>
+            <TextField [(ngModel)]="user.lastName" hint="Doe"></TextField>
+            <TextField [(ngModel)]="user.email" hint="johndoe@example.com"></TextField>
+            <TextField [(ngModel)]="password" hint="Password" secure="true"></TextField>
+            <TextField hint="Re-type password" secure="true"></TextField>
+
+            <Button text="Signup" backgroundColor="#F4AFAF" color="white" (tap)="signUp()"></Button>
+        </StackLayout>
+</StackLayout>

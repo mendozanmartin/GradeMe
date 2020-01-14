@@ -1,8 +1,8 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptCommonModule } from "nativescript-angular/common";
 
-import { BrowseRoutingModule } from "./browse-routing.module";
-import { BrowseComponent } from "./browse.component";
+import { BrowseRoutingModule } from "./course-page-routing.module";
+import { CoursePageComponent } from "./course-page.component";
 
 @NgModule({
     imports: [
@@ -10,10 +10,10 @@ import { BrowseComponent } from "./browse.component";
         BrowseRoutingModule
     ],
     declarations: [
-        BrowseComponent
+        CoursePageComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA
     ]
 })
-export class BrowseModule { }
+export class CoursePageModule { }

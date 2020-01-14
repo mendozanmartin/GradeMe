@@ -1,10 +1,10 @@
 {
   "nativescript": {
     "id": "org.nativescript.personalproject",
-    "tns-android": {
+    "tns-ios": {
       "version": "6.3.0"
     },
-    "tns-ios": {
+    "tns-android": {
       "version": "6.3.0"
     }
   },
@@ -25,6 +25,7 @@
     "@angular/router": "~8.2.0",
     "@nativescript/theme": "~2.2.1",
     "nativescript-angular": "~8.20.3",
+    "nativescript-couchbase-plugin": "^0.9.6",
     "nativescript-plugin-firebase": "^10.3.3",
     "nativescript-ui-sidedrawer": "~8.0.0",
     "reflect-metadata": "~0.1.12",

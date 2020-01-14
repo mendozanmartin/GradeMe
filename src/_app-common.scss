@@ -4,7 +4,30 @@
 // Place any CSS rules you want to apply on both iOS and Android here.
 // This is where the vast majority of your CSS code goes.
 
+* {
+    font-family: "Muli", "Muli-Regular";
+    font-weight: 400;
+}
+
+ActionBar {
+    background-color: #5296D6;
+}
+
+TextField {
+    placeholder-color: #d3d3d3;
+    border-radius: 10;
+    height: 50;
+    background-color: white;
+    padding: 10;
+    font-size: 18;
+}
+
+Button {
+    border-radius: 10;
+}
+
 // Font icon class
+
 .fab {
     font-family: "Font Awesome 5 Brands", "fa-brands-400";
     font-weight: 400;
