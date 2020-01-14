@@ -1,7 +1,7 @@
 <StackLayout class = "page">
 <StackLayout width = "75%" paddingTop = "150" class = "text-center">
     <Label text = "Made for Slackers, Designed by Slackers" color = "white" class = "h4"></Label>
-    <TextField [(ngModel)] = "email" hint = "johndoe@example.com"></TextField>
+    <TextField [(ngModel)] = "email" hint = "johndoe@example.com" keyboardType="email"></TextField>
     <TextField [(ngModel)] = "password" hint = "**********" secure = "true"></TextField>
     <Button text = "Login" color = "white" backgroundColor = "#4D9979" marginTop = "30" (tap) = "login()" fontWeight = "bold" fontSize = "20"></Button>
     <Button text = "Signup" backgroundColor = "#FF8282" color = "white" (tap) = "navigateSignUp()" fontWeight = "bold" fontSize = "20"></Button>
