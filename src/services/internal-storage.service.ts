@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Couchbase } from 'nativescript-couchbase-plugin';
-const database = new Couchbase('my-database');
+const coursesDatabase = new Couchbase('courses');
+const termsDatabase = new Couchbase('terms')
 
 @Injectable({
   providedIn: 'root'
@@ -9,20 +10,28 @@ export class InternalStorageService {
 
   constructor() { }
 
-  createDocument(name: string) {
-    return database.createDocument(name)
+  createCourse(name: string) {
+    return coursesDatabase.createDocument(name)
   }
 
-  deleteDocument(name: string) {
-    return database.deleteDocument(name)
+  deleteCourse(name: string) {
+    return coursesDatabase.deleteDocument(name)
   }
 
-  getDocument(name: string) {
-    return database.getDocument(name)
+  getCourse(name: string) {
+    return coursesDatabase.getDocument(name)
   }
 
+  createTerm(name: string) {
+    return termsDatabase.createDocument(name)
+  }
 
+  deleteTerm(name: string) {
+    return termsDatabase.deleteDocument(name)
+  }
 
+  getTerm(name: string) {
+    return termsDatabase.getDocument(name)
+  }
 
-   
 }

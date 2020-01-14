@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
-import { Couchbase } from 'nativescript-couchbase-plugin';
-const database = new Couchbase('my-database');
+import { RouterExtensions } from "nativescript-angular/router";
+
 
 @Component({
     selector: "Browse",
@@ -10,7 +10,7 @@ const database = new Couchbase('my-database');
 })
 export class CoursePageComponent implements OnInit {
 
-    constructor() {
+    constructor(private router:RouterExtensions) {
         // Use the component constructor to inject providers.
     }
 
@@ -23,11 +23,8 @@ export class CoursePageComponent implements OnInit {
         sideDrawer.showDrawer();
     }
 
-    accessDatabase() {
-        const person = database.query({
-            select: []
-        })
-
-        console.log(person)
+    viewWeightDistribution() {
+        this.router.navigate(["course-distribution"],{transition: {name: "slideTop", duration: 500, curve: "ease"}});
     }
+
 }
