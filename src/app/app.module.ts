@@ -14,6 +14,9 @@ import { AuthService } from "~/services/auth.service";
 import { FirestoreService } from "~/services/firestore.service";
 import { InternalStorageService } from "~/services/internal-storage.service";
 import { PersistentSettings } from "~/services/persistent-settings.service";
+import { CourseDistributionComponent } from './course-distribution/course-distribution.component';
+import { ModalDialogService } from "nativescript-angular/common";
+import { ModalCourseDistComponent } from './course-distribution/modal-course-dist/modal-course-dist.component';
 
 @NgModule({
     bootstrap: [
@@ -30,11 +33,14 @@ import { PersistentSettings } from "~/services/persistent-settings.service";
         LoginComponent,
         SignupComponent,
         AdditionSequenceComponent,
-        CoursePageComponent
+        CoursePageComponent,
+        CourseDistributionComponent,
+        ModalCourseDistComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA
     ],
-    providers: [AuthGuardService, AuthService, FirestoreService, InternalStorageService, PersistentSettings]
+    entryComponents: [ModalCourseDistComponent],
+    providers: [AuthGuardService, AuthService, FirestoreService, InternalStorageService, PersistentSettings, ModalDialogService]
 })
 export class AppModule { }

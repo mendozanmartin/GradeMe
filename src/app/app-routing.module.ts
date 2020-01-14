@@ -6,12 +6,15 @@ import { SignupComponent } from "./signup/signup.component";
 import { AuthGuardService } from "~/services/auth-guard.service";
 import { AdditionSequenceComponent } from "./addition-sequence/addition-sequence.component";
 import { CoursePageComponent } from "./course-page/course-page.component";
+import { CourseDistributionComponent } from "./course-distribution/course-distribution.component";
+import { ModalCourseDistComponent } from "./course-distribution/modal-course-dist/modal-course-dist.component";
 
 const routes: Routes = [
-    { path: "", redirectTo: "/home", pathMatch: "full" },
+    { path: "", redirectTo: "/course-distribution", pathMatch: "full" },
     {path: "login", component: LoginComponent},
     {path: "signup", component: SignupComponent},
     {path: "course-page", component: CoursePageComponent},
+    {path: "course-distribution", component: CourseDistributionComponent},
     {path: "addition-sequence", component: AdditionSequenceComponent},
     { path: "home", loadChildren: () => import("~/app/home/home.module").then((m) => m.HomeModule), canActivate: [AuthGuardService] },
     { path: "search", loadChildren: () => import("~/app/search/search.module").then((m) => m.SearchModule) },
