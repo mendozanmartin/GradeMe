@@ -1,5 +1,10 @@
-<StackLayout padding="20">
-    <Label text="Add anything you would like to add"></Label>
-    <Textfield hint = "Helloooo"></Textfield>
-    <Button text="Submit" (tap)="close()"></Button>
+<StackLayout shownModally = "onShownModally" backgroundColor = "transparent">
+    <Textfield hint = "Assessment name"></Textfield>
+        <GridLayout columns = "190, 100" rows = "50,50" height = "150" width = "300">
+            <Label  fontSize = "20" text = "Grade Factor (%): " row = "0" column = "0" paddingLeft="10" verticalAlignment = "center"></Label>
+            <Label  fontSize = "20" text = "Weight Factor (%): " row = "1" column = "0" paddingLeft = "10" verticalAlignment = "center"></Label>
+            <TextField hint = "55.5" keyboardType = "number" row = "0" column ="1" verticalAlignment = "center"></TextField>
+            <TextField hint = "5.0" keyboardType = "number" row = "1" column = "1" verticalAlignment = "center"></TextField>
+        </GridLayout>
+        <Button text="Add" (tap)="close()" color = "white" width = "45%" backgroundColor = "#739AFC"></Button>
 </StackLayout>
