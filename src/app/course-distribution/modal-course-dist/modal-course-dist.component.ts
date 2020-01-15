@@ -15,7 +15,7 @@ export class ModalCourseDistComponent implements OnInit {
   ngOnInit() {
   }
 
-  close(result: string) {
-    this.params.closeCallback(result)
+  close() {
+    this.params.closeCallback(undefined)
   }
 }

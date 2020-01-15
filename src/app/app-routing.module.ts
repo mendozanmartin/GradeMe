@@ -7,10 +7,9 @@ import { AuthGuardService } from "~/services/auth-guard.service";
 import { AdditionSequenceComponent } from "./addition-sequence/addition-sequence.component";
 import { CoursePageComponent } from "./course-page/course-page.component";
 import { CourseDistributionComponent } from "./course-distribution/course-distribution.component";
-import { ModalCourseDistComponent } from "./course-distribution/modal-course-dist/modal-course-dist.component";
 
 const routes: Routes = [
-    { path: "", redirectTo: "/course-distribution", pathMatch: "full" },
+    { path: "", redirectTo: "/home", pathMatch: "full" },
     {path: "login", component: LoginComponent},
     {path: "signup", component: SignupComponent},
     {path: "course-page", component: CoursePageComponent},
