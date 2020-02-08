@@ -16,6 +16,6 @@ export class ModalCourseDistComponent implements OnInit {
   }
 
   close() {
-    this.params.closeCallback(undefined)
+    // this.params.closeCallback(undefined)
   }
 }
