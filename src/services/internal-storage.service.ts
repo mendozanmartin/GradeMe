@@ -1,37 +1,33 @@
-import { Injectable } from '@angular/core';
-import { Couchbase } from 'nativescript-couchbase-plugin';
-const coursesDatabase = new Couchbase('courses');
-const termsDatabase = new Couchbase('terms')
+import { Injectable } from "@angular/core";
+import { Couchbase } from "nativescript-couchbase-plugin";
+const coursesDatabase = new Couchbase("courses");
+const termsDatabase = new Couchbase("terms");
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: "root"
 })
 export class InternalStorageService {
+    constructor() {}
 
-  constructor() { }
+    syncCourses(doc: any) {
+        if (coursesDatabase.getDocument(doc.cid)) {
+            coursesDatabase.updateDocument(doc.cid, {
+                doc
+            });
+        } else {
+            coursesDatabase.createDocument(
+                {
+                    doc
+                },
+                doc.cid
+            );
+        }
+    }
 
-  createCourse(name: string) {
-    return coursesDatabase.createDocument(name)
-  }
-
-  deleteCourse(name: string) {
-    return coursesDatabase.deleteDocument(name)
-  }
-
-  getCourse(name: string) {
-    return coursesDatabase.getDocument(name)
-  }
-
-  createTerm(name: string) {
-    return termsDatabase.createDocument(name)
-  }
-
-  deleteTerm(name: string) {
-    return termsDatabase.deleteDocument(name)
-  }
-
-  getTerm(name: string) {
-    return termsDatabase.getDocument(name)
-  }
-
+    getCourses() {
+        const results = coursesDatabase.query({
+            select: [] // Leave empty to query for all
+        });
+        return results;
+    }
 }
