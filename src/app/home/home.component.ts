@@ -25,7 +25,8 @@ export class HomeComponent implements OnInit {
     ngOnInit(): void {
         // Init your component properties here.
         this.firestore.updateStorageCourses(PersistentSettings.token);
-        console.log(this.storage.getCourses());
+        this.courses = this.storage.getCourses();
+        console.log(this.courses);
     }
 
     onDrawerButtonTap(): void {
