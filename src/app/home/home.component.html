@@ -34,38 +34,24 @@
       textWrap="true"
       fontWeight="600"
     ></Label>
-    <StackLayout
-      marginTop="15"
-      class="course-block"
-      borderRadius="10"
-      height="100"
-      marginLeft="25"
-      marginRight="25"
-      borderWidth="1"
-      (tap)="navigateToCourse()"
-    >
-      <Label
-        text="PROCTECH 3CE3 - Chemical Engineering"
-        class="text-center"
-      ></Label>
-    </StackLayout>
-    <StackLayout
-      marginTop="15"
-      class="course-block"
-      borderRadius="10"
-      height="100"
-      marginLeft="25"
-      marginRight="25"
-      borderWidth="1"
-      (tap)="navigateToCourse()"
-    >
-      <Label
-        text="PROCTECH 4SS3 - System Specifications and Design"
-        class="text-center"
-      ></Label>
-    </StackLayout>
   </StackLayout>
 
+  <ScrollView height="100%">
+    <StackLayout height="100%" *ngFor="let course of courses">
+      <StackLayout
+        marginTop="15"
+        class="course-block"
+        borderRadius="10"
+        height="100"
+        marginLeft="25"
+        marginRight="25"
+        borderWidth="1"
+        (tap)="navigateToCourse()"
+      >
+        <Label [text]="course.doc.courseName" class="text-center"></Label>
+      </StackLayout>
+    </StackLayout>
+  </ScrollView>
   <Button
     androidElevation="5"
     top="455"
