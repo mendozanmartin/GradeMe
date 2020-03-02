@@ -40,7 +40,7 @@
     <StackLayout
       height="100%"
       width="85%"
-      *ngFor="let course of courses"
+      *ngFor="let course of courses; let i = index"
       horizontalAlignment="center"
     >
       <StackLayout
@@ -52,9 +52,9 @@
         marginLeft="25"
         marginRight="25"
         borderWidth="1"
-        (tap)="navigateToCourse()"
+        (tap)="navigateToCourse(i)"
       >
-        <Label [text]="course.doc.courseName" class="text-center"></Label>
+        <Label [text]="course.courseName" class="text-center"></Label>
       </StackLayout>
     </StackLayout>
   </ScrollView>

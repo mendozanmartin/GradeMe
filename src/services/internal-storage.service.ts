@@ -25,9 +25,14 @@ export class InternalStorageService {
     }
 
     getCourses() {
+        const refinedResults = [];
         const results = coursesDatabase.query({
             select: [] // Leave empty to query for all
         });
-        return results;
+        results.forEach(v => {
+            delete v.id;
+            refinedResults.push(v.doc);
+        });
+        return refinedResults;
     }
 }

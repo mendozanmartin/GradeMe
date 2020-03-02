@@ -26,7 +26,6 @@ export class HomeComponent implements OnInit {
         // Init your component properties here.
         this.firestore.updateStorageCourses(PersistentSettings.token);
         this.courses = this.storage.getCourses();
-        console.log(this.courses);
     }
 
     onDrawerButtonTap(): void {
@@ -41,9 +40,11 @@ export class HomeComponent implements OnInit {
         });
     }
 
-    navigateToCourse() {
+    navigateToCourse(index: number) {
+        const course = this.courses[index];
         this.router.navigate(["course-page"], {
-            transition: { name: "slide", duration: 500, curve: "ease" }
+            transition: { name: "slide", duration: 500, curve: "ease" },
+            queryParams: course
         });
     }
 }
