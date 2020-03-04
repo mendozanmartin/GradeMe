@@ -21,7 +21,7 @@ export class CoursePageComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        // Init your component properties here.
+        // todo: turn queryParams into state to support complex objects
         this.route.queryParams.subscribe(params => {
             this.course = params as Course;
         });

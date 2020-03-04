@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
         const course = this.courses[index];
         this.router.navigate(["course-page"], {
             transition: { name: "slide", duration: 500, curve: "ease" },
-            queryParams: course
+            state: course
         });
     }
 }
