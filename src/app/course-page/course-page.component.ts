@@ -23,11 +23,11 @@ export class CoursePageComponent implements OnInit {
     ngOnInit(): void {
         // todo: turn queryParams into state to support complex objects
         this.route.queryParams.subscribe(params => {
-            this.course = params as Course;
+            this.course = JSON.parse(params.course) as Course;
         });
-        this.courseCompletion();
-        this.calculateGrade();
-        console.log(this.currentGrade + " " + this.progressPercent);
+        // this.courseCompletion();
+        // this.calculateGrade();
+        console.log(this.course.academicSeason);
     }
 
     courseCompletion() {
