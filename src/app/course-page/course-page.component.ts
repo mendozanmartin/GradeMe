@@ -25,8 +25,8 @@ export class CoursePageComponent implements OnInit {
         this.route.queryParams.subscribe(params => {
             this.course = JSON.parse(params.course) as Course;
         });
-        this.courseCompletion();
-        this.calculateGrade();
+
+        console.log(this.course.weightedGrades);
     }
 
     courseCompletion() {
