@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Couchbase } from "nativescript-couchbase-plugin";
+import { Course } from "~/models/course.model";
 const coursesDatabase = new Couchbase("courses");
 const termsDatabase = new Couchbase("terms");
 
@@ -34,5 +35,11 @@ export class InternalStorageService {
             refinedResults.push(v.doc);
         });
         return refinedResults;
+    }
+
+    addCourse(course: Course) {
+        coursesDatabase.createDocument({
+            course
+        });
     }
 }

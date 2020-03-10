@@ -58,6 +58,7 @@ export class HomeComponent implements OnInit {
         setTimeout(function() {
             pullRefresh.refreshing = false;
         }, 1000);
-        console.log("Page reloaded");
+        this.firestore.updateStorageCourses(PersistentSettings.token);
+        this.courses = this.storage.getCourses();
     }
 }

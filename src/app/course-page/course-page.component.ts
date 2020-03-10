@@ -46,13 +46,14 @@ export class CoursePageComponent implements OnInit {
                 (grade.weightFactor / 100)) as number;
             denominator += grade.weightFactor as number;
         });
-        this.currentGrade = parseInt(
-            ((numerator / denominator) * 100).toFixed()
+        this.currentGrade = parseFloat(
+            ((numerator / denominator) * 100).toFixed(2)
         );
         this.currentWholeGrade = Math.floor(this.currentGrade);
-        this.currentDecimalGrade = parseInt(
+        this.currentDecimalGrade = parseFloat(
             this.currentGrade.toString().split(".")[1]
         );
+        console.log(this.currentGrade.toString());
     }
 
     onDrawerButtonTap(): void {

@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import * as firebase from "nativescript-plugin-firebase";
 import { User } from "~/models/user.model";
 import { InternalStorageService } from "./internal-storage.service";
+import { Course } from "~/models/course.model";
 
 @Injectable({
     providedIn: "root"
@@ -35,4 +36,11 @@ export class FirestoreService {
             })
             .catch(console.error);
     }
+
+    addCourse(course: Course) {
+        this.coursesCollection.add({
+            course
+        });
+    }
+    addWeightedGrade() {}
 }
