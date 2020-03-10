@@ -6,6 +6,11 @@ import { FirestoreService } from "~/services/firestore.service";
 import { PersistentSettings } from "~/services/persistent-settings.service";
 import { InternalStorageService } from "~/services/internal-storage.service";
 import { Course } from "~/models/course.model";
+import { registerElement } from "nativescript-angular/element-registry";
+registerElement(
+    "PullToRefresh",
+    () => require("@nstudio/nativescript-pulltorefresh").PullToRefresh
+);
 
 @Component({
     selector: "Home",
@@ -46,5 +51,13 @@ export class HomeComponent implements OnInit {
             transition: { name: "slide", duration: 500, curve: "ease" },
             queryParams: { course: course }
         });
+    }
+
+    refreshList(args) {
+        const pullRefresh = args.object;
+        setTimeout(function() {
+            pullRefresh.refreshing = false;
+        }, 1000);
+        console.log("Page reloaded");
     }
 }

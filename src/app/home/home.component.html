@@ -22,50 +22,58 @@
   </ActionItem>
   <Label text="Home"></Label>
 </ActionBar>
+<PullToRefresh (refresh)="refreshList($event)">
+  <AbsoluteLayout width="100%" height="100%">
+    <Label
+      text="Hi Martin, which course would you like to check?"
+      marginTop="10"
+      marginLeft="25"
+      marginRight="25"
+      fontSize="20"
+      textWrap="true"
+      fontWeight="600"
+      width="100%"
+      top="0"
+    ></Label>
 
-<AbsoluteLayout width="100%" height="100%">
-  <Label
-    text="Hi Martin, which course would you like to check?"
-    marginTop="10"
-    marginLeft="25"
-    marginRight="25"
-    fontSize="20"
-    textWrap="true"
-    fontWeight="600"
-    width="100%"
-    top="0"
-  ></Label>
-
-  <ScrollView height="100%" top="60" width="100%">
-    <StackLayout height="100%" width="85%" horizontalAlignment="center">
-      <StackLayout
-        *ngFor="let course of courses; let i = index"
-        marginTop="15"
-        class="course-block"
-        borderRadius="10"
-        height="100"
-        width="100%"
-        marginLeft="25"
-        marginRight="25"
-        borderWidth="1"
-        (tap)="navigateToCourse(i)"
-      >
-        <Label [text]="course.courseName" class="text-center"></Label>
-      </StackLayout>
-    </StackLayout>
-  </ScrollView>
-  <Button
-    androidElevation="5"
-    top="500"
-    left="300"
-    height="75"
-    width="75"
-    borderRadius="50%"
-    backgroundColor="#5E94D5"
-    (tap)="addGPA()"
-  >
-    <FormattedString>
-      <Span text="&#xf067;" color="white" class="fas" fontSize="30"></Span>
-    </FormattedString>
-  </Button>
-</AbsoluteLayout>
+    <ListView
+      [items]="courses"
+      height="100%"
+      top="70"
+      width="100%"
+      separatorColor="transparent"
+    >
+      <ng-template let-item="item" let-i="index">
+        <StackLayout>
+          <StackLayout
+            marginTop="5"
+            class="course-block"
+            borderRadius="10"
+            height="90"
+            width="85%"
+            marginLeft="25"
+            marginRight="25"
+            borderWidth="1"
+            (tap)="navigateToCourse(i)"
+          >
+            <Label [text]="item.courseName" class="text-center"></Label>
+          </StackLayout>
+        </StackLayout>
+      </ng-template>
+    </ListView>
+    <Button
+      androidElevation="5"
+      top="500"
+      left="300"
+      height="75"
+      width="75"
+      borderRadius="50%"
+      backgroundColor="#5E94D5"
+      (tap)="addGPA()"
+    >
+      <FormattedString>
+        <Span text="&#xf067;" color="white" class="fas" fontSize="30"></Span>
+      </FormattedString>
+    </Button>
+  </AbsoluteLayout>
+</PullToRefresh>
