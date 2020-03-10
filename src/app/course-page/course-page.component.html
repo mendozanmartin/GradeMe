@@ -32,8 +32,9 @@
   ></Label>
   <Label class="text-center" color="#EB1717" paddingTop="-10">
     <FormattedString>
-      <Span text="50." fontSize="60" fontWeight="bold"></Span>
-      <Span text="50" fontSize="45" fontWeight="bold"></Span>
+      <Span [text]="currentWholeGrade" fontSize="60" fontWeight="bold"></Span>
+      <Span text="." fontSize="60" fontWeight="bold"></Span>
+      <Span [text]="currentDecimalGrade" fontSize="45" fontWeight="bold"></Span>
       <Span text="%" fontSize="45" fontWeight="bold"></Span>
     </FormattedString>
   </Label>

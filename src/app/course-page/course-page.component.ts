@@ -13,6 +13,8 @@ export class CoursePageComponent implements OnInit {
     public course: Course;
     public progressPercent: number = 0;
     public currentGrade: number = 0;
+    public currentWholeGrade: number = 0;
+    public currentDecimalGrade: number = 0;
     constructor(
         private router: RouterExtensions,
         private route: ActivatedRoute
@@ -36,14 +38,21 @@ export class CoursePageComponent implements OnInit {
     }
 
     calculateGrade() {
-        let denom = 0;
-        let num = 0;
+        let denominator = 0;
+        let numerator = 0;
+
         this.course.weightedGrades.forEach(grade => {
-            num += (grade.gradeFactor * (grade.weightFactor / 100)) as number;
-            denom += grade.weightFactor as number;
+            numerator += (grade.gradeFactor *
+                (grade.weightFactor / 100)) as number;
+            denominator += grade.weightFactor as number;
         });
-        this.currentGrade = num / denom;
-        console.log(num + " " + denom);
+        this.currentGrade = parseInt(
+            ((numerator / denominator) * 100).toFixed()
+        );
+        this.currentWholeGrade = Math.floor(this.currentGrade);
+        this.currentDecimalGrade = parseInt(
+            this.currentGrade.toString().split(".")[1]
+        );
     }
 
     onDrawerButtonTap(): void {
