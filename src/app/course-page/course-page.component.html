@@ -70,12 +70,10 @@
         fontWeight="bold"
         class="h3"
       ></Label>
-      <Label
-        [text]="progressPercent"
-        row="0"
-        column="2"
-        fontWeight="bold"
-        class="h2"
+      <Label row="0" column="2">
+        <FormattedString
+          ><Span [text]="progressPercent" fontWeight="bold" class="h2"></Span>
+          <Span text="%" fontWeight="bold" class="h2"></Span></FormattedString
       ></Label>
       <Label text="80%" row="1" column="2" fontWeight="bold" class="h2"></Label>
       <Label text="50%" row="2" column="2" fontWeight="bold" class="h2"></Label>

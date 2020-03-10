@@ -37,13 +37,9 @@
   ></Label>
 
   <ScrollView height="100%" top="60" width="100%">
-    <StackLayout
-      height="100%"
-      width="85%"
-      *ngFor="let course of courses; let i = index"
-      horizontalAlignment="center"
-    >
+    <StackLayout height="100%" width="85%" horizontalAlignment="center">
       <StackLayout
+        *ngFor="let course of courses; let i = index"
         marginTop="15"
         class="course-block"
         borderRadius="10"

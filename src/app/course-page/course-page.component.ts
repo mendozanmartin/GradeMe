@@ -25,8 +25,8 @@ export class CoursePageComponent implements OnInit {
         this.route.queryParams.subscribe(params => {
             this.course = JSON.parse(params.course) as Course;
         });
-
-        console.log(this.course.weightedGrades);
+        this.courseCompletion();
+        this.calculateGrade();
     }
 
     courseCompletion() {
@@ -43,6 +43,7 @@ export class CoursePageComponent implements OnInit {
             denom += grade.weightFactor as number;
         });
         this.currentGrade = num / denom;
+        console.log(num + " " + denom);
     }
 
     onDrawerButtonTap(): void {
