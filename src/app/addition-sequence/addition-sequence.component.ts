@@ -5,6 +5,8 @@ import { GradePointAverage } from "~/models/grade-point-average.model";
 import { AcademicTerm } from "~/models/academic-term.model";
 import { ListPicker } from "tns-core-modules/ui/list-picker";
 import { RouterExtensions } from "nativescript-angular/router";
+import { FirestoreService } from "~/services/firestore.service";
+import { InternalStorageService } from "~/services/internal-storage.service";
 
 @Component({
     selector: "ns-addition-sequence",
@@ -34,7 +36,12 @@ export class AdditionSequenceComponent implements OnInit {
     public years: Array<number> = [];
     public seasons: Array<string> = ["Spring/Summer", "Fall", "Winter"];
 
-    constructor(private page: Page, private router: RouterExtensions) {
+    constructor(
+        private page: Page,
+        private router: RouterExtensions,
+        private firestore: FirestoreService,
+        private storage: InternalStorageService
+    ) {
         this.course = new Course(); //these have to be created so that there is no error when binding to ngModel
         this.term = new AcademicTerm();
 
@@ -87,6 +94,15 @@ export class AdditionSequenceComponent implements OnInit {
         this.prompt = this.coursePrompts[3];
     }
 
+    submitFinalGradeCourse() {
+        this.courseFour = false;
+        this.firestore.addCourse(this.course).then(data => {
+            this.storage.addCourse(this.course, data);
+        });
+        this.router.navigate(["/home"]);
+        //TODO: write new course to internal and external storage
+    }
+
     termSequence() {
         //1st step in terms sequence
         this.sequenceBegin = false;
@@ -112,20 +128,14 @@ export class AdditionSequenceComponent implements OnInit {
 
     public onSelectedYearChanged(args: EventData) {
         const picker = <ListPicker>args.object;
-        if (this.courseTwo) {
-            this.course.academicYear = this.years[picker.selectedIndex];
-        } else {
-            this.term.academicYear = this.years[picker.selectedIndex];
-        }
+        this.course.academicYear = this.years[picker.selectedIndex];
+        this.term.academicYear = this.years[picker.selectedIndex];
     }
 
     public onSelectedSeasonChanged(args: EventData) {
         const picker = <ListPicker>args.object;
-        if (this.termOne) {
-            this.course.academicSeason = this.seasons[picker.selectedIndex];
-        } else {
-            this.term.academicSeason = this.seasons[picker.selectedIndex];
-        }
+        this.course.academicSeason = this.seasons[picker.selectedIndex];
+        this.term.academicSeason = this.seasons[picker.selectedIndex];
     }
 
     public routeBack() {

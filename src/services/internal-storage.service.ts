@@ -37,9 +37,12 @@ export class InternalStorageService {
         return refinedResults;
     }
 
-    addCourse(course: Course) {
-        coursesDatabase.createDocument({
-            course
-        });
+    addCourse(course: Course, cid: string) {
+        coursesDatabase.createDocument(
+            {
+                course
+            },
+            cid
+        );
     }
 }

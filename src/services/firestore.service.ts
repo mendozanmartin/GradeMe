@@ -38,9 +38,13 @@ export class FirestoreService {
     }
 
     addCourse(course: Course) {
-        this.coursesCollection.add({
-            course
-        });
+        return this.coursesCollection
+            .add({
+                course
+            })
+            .then(data => {
+                return data.id;
+            });
     }
     addWeightedGrade() {}
 }
