@@ -3,6 +3,7 @@ import * as firebase from "nativescript-plugin-firebase";
 import { User } from "~/models/user.model";
 import { InternalStorageService } from "./internal-storage.service";
 import { Course } from "~/models/course.model";
+import { PersistentSettings } from "./persistent-settings.service";
 
 @Injectable({
     providedIn: "root"
@@ -38,12 +39,12 @@ export class FirestoreService {
     }
 
     addCourse(course: Course) {
+        //finish this function
         return this.coursesCollection
-            .add({
-                course
-            })
+            .doc(course.cid)
+            .set(course)
             .then(data => {
-                return data.id;
+                console.log(data);
             });
     }
     addWeightedGrade() {}

@@ -10,4 +10,5 @@ export class Course {
     weightedGrades: Array<AssessmentGrade>;
     credits: number;
     inProgress: boolean;
+    uid: string;
 }

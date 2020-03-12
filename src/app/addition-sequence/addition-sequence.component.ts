@@ -7,6 +7,7 @@ import { ListPicker } from "tns-core-modules/ui/list-picker";
 import { RouterExtensions } from "nativescript-angular/router";
 import { FirestoreService } from "~/services/firestore.service";
 import { InternalStorageService } from "~/services/internal-storage.service";
+import { PersistentSettings } from "~/services/persistent-settings.service";
 
 @Component({
     selector: "ns-addition-sequence",
@@ -94,11 +95,17 @@ export class AdditionSequenceComponent implements OnInit {
         this.prompt = this.coursePrompts[3];
     }
 
+    randomIdGenerator(): string {
+        return Math.random()
+            .toString(36)
+            .substr(2, 9);
+    }
     submitFinalGradeCourse() {
-        this.courseFour = false;
-        this.firestore.addCourse(this.course).then(data => {
-            this.storage.addCourse(this.course, data);
-        });
+        const randomId = this.randomIdGenerator();
+        this.course.cid = randomId;
+        this.course.uid = PersistentSettings.token;
+        this.storage.addCourse(this.course, randomId);
+        this.firestore.addCourse(this.course).catch(console.error);
         this.router.navigate(["/home"]);
         //TODO: write new course to internal and external storage
     }

@@ -1,32 +1,56 @@
 <ActionBar>
-    <!-- 
+  <!-- 
     Use the NavigationButton as a side-drawer button in Android
     because ActionItems are shown on the right side of the ActionBar
     -->
-    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
-    <!-- 
+  <NavigationButton
+    ios:visibility="collapsed"
+    icon="res://menu"
+    (tap)="onDrawerButtonTap()"
+  ></NavigationButton>
+  <!-- 
     Use the ActionItem for IOS with position set to left. Using the
     NavigationButton as a side-drawer button in iOS is not possible,
     because its function is to always navigate back in the application.
     -->
-    <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
-        ios.position="left">
-    </ActionItem>
-    <Label text="PROTECH 3CE3"></Label>
+  <ActionItem
+    icon="res://menu"
+    android:visibility="collapsed"
+    (tap)="onDrawerButtonTap()"
+    ios.position="left"
+  >
+  </ActionItem>
+  <Label text="PROTECH 3CE3"></Label>
 </ActionBar>
 
-<AbsoluteLayout width = "100%" height = "100%" >
-    <GridLayout columns="140, 100, 100" rows = "100" width = "100%" paddingTop = "25" borderRadius = "0 0 20 20" backgroundColor="#fff" androidElevation="5" height = "75">
-        <Label text = "Name" paddingLeft = "30" column="0" fontSize = "16"></Label>
-        <Label text = "Grade (%)" column="1" fontSize = "16"></Label>
-        <Label text = "Weight (%)" column="2" fontSize = "16"></Label>
-      
-    </GridLayout>
+<AbsoluteLayout width="100%" height="100%">
+  <GridLayout
+    columns="140, 100, 100"
+    rows="100"
+    width="100%"
+    paddingTop="25"
+    borderRadius="0 0 20 20"
+    backgroundColor="#fff"
+    androidElevation="5"
+    height="75"
+  >
+    <Label text="Name" paddingLeft="30" column="0" fontSize="16"></Label>
+    <Label text="Grade (%)" column="1" fontSize="16"></Label>
+    <Label text="Weight (%)" column="2" fontSize="16"></Label>
+  </GridLayout>
 
-
-       <Button androidElevation = "5" top = "455" left = "250" height = "75" width = "75" borderRadius = "50%" backgroundColor = "#5E94D5" (tap) = "addWeightedGrade()">
-           <FormattedString>
-               <Span text = "&#xf067;" color = "white" class = "fas" fontSize = "30"></Span>
-           </FormattedString>
-       </Button>
-   </AbsoluteLayout>
+  <Button
+    androidElevation="5"
+    top="500"
+    left="300"
+    height="75"
+    width="75"
+    borderRadius="50%"
+    backgroundColor="#5E94D5"
+    (tap)="addWeightedGrade()"
+  >
+    <FormattedString>
+      <Span text="&#xf067;" color="white" class="fas" fontSize="30"></Span>
+    </FormattedString>
+  </Button>
+</AbsoluteLayout>

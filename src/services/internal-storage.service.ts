@@ -38,11 +38,6 @@ export class InternalStorageService {
     }
 
     addCourse(course: Course, cid: string) {
-        coursesDatabase.createDocument(
-            {
-                course
-            },
-            cid
-        );
+        coursesDatabase.createDocument(course, cid);
     }
 }
