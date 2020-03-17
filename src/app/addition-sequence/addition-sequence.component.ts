@@ -104,7 +104,13 @@ export class AdditionSequenceComponent implements OnInit {
         const randomId = this.randomIdGenerator();
         this.course.cid = randomId;
         this.course.uid = PersistentSettings.token;
-        this.storage.addCourse(this.course, randomId);
+        this.storage.addCourse(this.course, randomId).then(data => {
+            console.log(
+                data === true
+                    ? "Succesfully added course"
+                    : "Failed to add course"
+            );
+        });
         this.firestore.addCourse(this.course).catch(console.error);
         this.router.navigate(["/home"]);
         //TODO: write new course to internal and external storage

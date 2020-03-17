@@ -38,6 +38,10 @@ export class InternalStorageService {
     }
 
     addCourse(course: Course, cid: string) {
-        coursesDatabase.createDocument(course, cid);
+        return coursesDatabase.createDocument(course, cid);
+    }
+
+    deleteCourse(course: Course) {
+        return coursesDatabase.deleteDocument(course.cid);
     }
 }

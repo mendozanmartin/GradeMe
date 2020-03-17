@@ -1,9 +1,10 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewContainerRef } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
 import { RouterExtensions } from "nativescript-angular/router";
 import { ActivatedRoute } from "@angular/router";
 import { Course } from "~/models/course.model";
+import * as dialogs from "tns-core-modules/ui/dialogs";
 
 @Component({
     selector: "Browse",
@@ -67,5 +68,25 @@ export class CoursePageComponent implements OnInit {
             transition: { name: "slideTop", duration: 500, curve: "ease" },
             queryParams: { course: course }
         });
+    }
+
+    deleteCourse() {
+        dialogs
+            .action({
+                message: "Are you sure you want to delete this course?",
+                cancelButtonText: "Cancel text",
+                actions: [
+                    "Yes, I want to delete this course",
+                    "No, I don't want to delete this course"
+                ]
+            })
+            .then(result => {
+                console.log("Dialog result: " + result);
+                if (result == "Option1") {
+                    //Do action1
+                } else if (result == "Option2") {
+                    //Do action2
+                }
+            });
     }
 }

@@ -80,12 +80,23 @@
       <Label text="80%" row="1" column="2" fontWeight="bold" class="h2"></Label>
       <Label text="50%" row="2" column="2" fontWeight="bold" class="h2"></Label>
     </GridLayout>
+
     <Button
       text="View Weight Distribution"
       (tap)="viewWeightDistribution()"
       color="white"
       width="60%"
+      marginBottom="20"
       backgroundColor="#739AFC"
     ></Button>
+
+    <Button
+      text="Delete Course"
+      (tap)="deleteCourse()"
+      color="white"
+      width="30%"
+      backgroundColor="#EB1717"
+    >
+    </Button>
   </StackLayout>
 </StackLayout>

@@ -35,11 +35,15 @@ export class FirestoreService {
                     this.storage.syncCourses(doc.data());
                 });
             })
-            .catch(console.error);
+            .catch(console.error)
+            .then(() => {
+                console.log("Finished syncing database");
+            });
     }
 
     addCourse(course: Course) {
         //finish this function
+        course.weightedGrades = [];
         return this.coursesCollection
             .doc(course.cid)
             .set(course)
@@ -48,4 +52,13 @@ export class FirestoreService {
             });
     }
     addWeightedGrade() {}
+
+    deleteCourse(course: Course) {
+        return this.coursesCollection
+            .doc(course.cid)
+            .delete()
+            .then(data => {
+                return data;
+            });
+    }
 }
