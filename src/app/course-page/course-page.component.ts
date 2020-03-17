@@ -62,8 +62,10 @@ export class CoursePageComponent implements OnInit {
     }
 
     viewWeightDistribution() {
+        const course = JSON.stringify(this.course);
         this.router.navigate(["course-distribution"], {
-            transition: { name: "slideTop", duration: 500, curve: "ease" }
+            transition: { name: "slideTop", duration: 500, curve: "ease" },
+            queryParams: { course: course }
         });
     }
 }

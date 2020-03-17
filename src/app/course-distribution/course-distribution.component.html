@@ -25,8 +25,8 @@
 
 <AbsoluteLayout width="100%" height="100%">
   <GridLayout
-    columns="140, 100, 100"
-    rows="100"
+    columns="180, 120, 120"
+    rows="100, *"
     width="100%"
     paddingTop="25"
     borderRadius="0 0 20 20"
@@ -38,6 +38,14 @@
     <Label text="Grade (%)" column="1" fontSize="16"></Label>
     <Label text="Weight (%)" column="2" fontSize="16"></Label>
   </GridLayout>
+
+  <ListView [items]="weightedGrades" row="1">
+    <ng-template let-item="item" let-i="index">
+      <FlexboxLayout>
+        <Label [text]="item.courseName"></Label>
+      </FlexboxLayout>
+    </ng-template>
+  </ListView>
 
   <Button
     androidElevation="5"
