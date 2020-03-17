@@ -39,11 +39,11 @@
     <Label text="Weight (%)" column="2" fontSize="16"></Label>
   </GridLayout>
 
-  <ListView [items]="weightedGrades" top="75" left="10">
+  <ListView [items]="weightedGrades" top="75" left="0">
     <ng-template let-item="item" let-i="index">
       <StackLayout>
         <FlexboxLayout>
-          <Label [text]="item.gradeName" width="180" fontSize="16"></Label>
+          <Label [text]="item.gradeName" width="195" fontSize="16"></Label>
           <Label [text]="item.gradeFactor" width="120" fontSize="16"></Label>
           <Label [text]="item.weightFactor" width="120" fontSize="16"></Label>
         </FlexboxLayout>

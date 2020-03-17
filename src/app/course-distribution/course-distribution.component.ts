@@ -29,6 +29,7 @@ export class CourseDistributionComponent implements OnInit {
         this.route.queryParams.subscribe(params => {
             this.course = JSON.parse(params.course) as Course;
             this.weightedGrades = this.course.weightedGrades;
+            console.log(this.weightedGrades);
         });
     }
 
