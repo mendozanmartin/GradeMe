@@ -8,6 +8,7 @@ import {
 import { ModalCourseDistComponent } from "./modal-course-dist/modal-course-dist.component";
 import { ActivatedRoute } from "@angular/router";
 import { Course } from "~/models/course.model";
+import { AssessmentGrade } from "~/models/assessment-grade.model";
 
 @Component({
     selector: "ns-course-distribution",
@@ -16,7 +17,7 @@ import { Course } from "~/models/course.model";
 })
 export class CourseDistributionComponent implements OnInit {
     public course: Course;
-    public weightedGrades: Array<Object>;
+    public weightedGrades: Array<AssessmentGrade>;
 
     constructor(
         private modalService: ModalDialogService,
