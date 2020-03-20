@@ -74,7 +74,7 @@ export class CoursePageComponent implements OnInit {
         dialogs
             .action({
                 message: "Are you sure you want to delete this course?",
-                cancelButtonText: "Cancel text",
+                cancelButtonText: "Cancel",
                 actions: [
                     "Yes, I want to delete this course",
                     "No, I don't want to delete this course"
@@ -82,9 +82,9 @@ export class CoursePageComponent implements OnInit {
             })
             .then(result => {
                 console.log("Dialog result: " + result);
-                if (result == "Option1") {
-                    //Do action1
-                } else if (result == "Option2") {
+                if (result == "Yes, I want to delete this course") {
+                    this.router.navigate(["/home"]);
+                } else if (result == "No, I don't want to delete this course") {
                     //Do action2
                 }
             });
